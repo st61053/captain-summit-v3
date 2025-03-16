@@ -1,0 +1,28 @@
+{
+    "users": {
+        "teamA": {
+            "admin": {
+                "id": "1",
+                "password": "Heslo123",
+                "role": "admin",
+                "team": "teamA",
+                "coins": 100
+            }
+        }
+    },
+    "quests": {
+        "0": {
+            "id": "0",
+            "title": "Quest 1",
+            "description": "Description of Quest 1",
+            "locDesc": "Position of Quest 1",
+            "reward": 10,
+            "status": "teamA",
+            "location": {
+                "lat": 50.096604,
+                "lng": 14.420512
+            },
+            "icon": "quest1"
+        }
+    }
+}

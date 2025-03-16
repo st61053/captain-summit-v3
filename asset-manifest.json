@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/captain-summit-v3/static/css/main.90eb8439.css",
-    "main.js": "/captain-summit-v3/static/js/main.3f8a724d.js",
+    "main.js": "/captain-summit-v3/static/js/main.0069a17e.js",
     "static/media/barrel.png": "/captain-summit-v3/static/media/barrel.cbc22e9b65d9953ea84f.png",
     "static/media/dollar.png": "/captain-summit-v3/static/media/dollar.ed24bb3481a327689b68.png",
     "index.html": "/captain-summit-v3/index.html",
     "main.90eb8439.css.map": "/captain-summit-v3/static/css/main.90eb8439.css.map",
-    "main.3f8a724d.js.map": "/captain-summit-v3/static/js/main.3f8a724d.js.map"
+    "main.0069a17e.js.map": "/captain-summit-v3/static/js/main.0069a17e.js.map"
   },
   "entrypoints": [
     "static/css/main.90eb8439.css",
-    "static/js/main.3f8a724d.js"
+    "static/js/main.0069a17e.js"
   ]
 }

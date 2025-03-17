@@ -1,28 +1,327 @@
 {
     "users": {
         "teamA": {
-            "admin": {
+            "role1": {
                 "id": "1",
                 "password": "Heslo123",
-                "role": "admin",
+                "role": "role1",
                 "team": "teamA",
-                "coins": 100
+                "coins": 100,
+                "location": {
+                    "lat": 0,
+                    "lng": 0
+                },
+                "roleQuests": [
+                    "0",
+                    "1"
+                ]
+            },
+            "role2": {
+                "id": "1",
+                "password": "Heslo123",
+                "role": "role2",
+                "team": "teamA",
+                "coins": 100,
+                "location": {
+                    "lat": 0,
+                    "lng": 0
+                },
+                "roleQuests": [
+                    "0",
+                    "1"
+                ]
+            }
+        },
+        "teamB": {
+            "role2": {
+                "id": "2",
+                "password": "Heslo123",
+                "role": "role2",
+                "team": "teamB",
+                "coins": 90,
+                "location": {
+                    "lat": 0,
+                    "lng": 0
+                },
+                "roleQuests": [
+                    "0",
+                    "1"
+                ]
+            }
+        },
+        "teamC": {
+            "role3": {
+                "id": "3",
+                "password": "Heslo123",
+                "role": "role3",
+                "team": "teamC",
+                "coins": 80,
+                "location": {
+                    "lat": 0,
+                    "lng": 0
+                },
+                "roleQuests": [
+                    "0",
+                    "1"
+                ]
+            }
+        },
+        "teamD": {
+            "role4": {
+                "id": "4",
+                "password": "Heslo123",
+                "role": "role4",
+                "team": "teamD",
+                "coins": 70,
+                "location": {
+                    "lat": 0,
+                    "lng": 0
+                },
+                "roleQuests": [
+                    "0",
+                    "1"
+                ]
             }
         }
     },
     "quests": {
         "0": {
-            "id": "0",
-            "title": "Quest 1",
-            "description": "Description of Quest 1",
-            "locDesc": "Position of Quest 1",
+            "id": "a567c6b3-23df-416c-a507-0ac06a46246b",
+            "title": "Název úkolu",
+            "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+            "locDesc": "Krátká upřesňující informace pozice",
             "reward": 10,
             "status": "teamA",
             "location": {
-                "lat": 50.096604,
-                "lng": 14.420512
+                "lat": 50.09622,
+                "lng": 14.41755
             },
-            "icon": "quest1"
+            "icon": "quest1",
+            "takeTime": "Sun Mar 16 2025 21:18:00 GMT+0100"
+        }
+    },
+    "roleQuests": {
+        "role1": {
+            "0": {
+                "id": "1",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role1"
+            },
+            "1": {
+                "id": "2",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role1"
+            },
+            "2": {
+                "id": "3",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role1"
+            },
+            "3": {
+                "id": "4",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role1"
+            },
+            "4": {
+                "id": "5",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role1"
+            }
+        },
+        "role2": {
+            "0": {
+                "id": "7",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role2"
+            },
+            "1": {
+                "id": "8",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role2"
+            },
+            "2": {
+                "id": "9",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role2"
+            },
+            "3": {
+                "id": "10",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role2"
+            },
+            "4": {
+                "id": "11",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role2"
+            }
+        },
+        "role3": {
+            "0": {
+                "id": "13",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role3"
+            },
+            "1": {
+                "id": "14",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role3"
+            },
+            "2": {
+                "id": "15",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role3"
+            },
+            "3": {
+                "id": "16",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role3"
+            },
+            "4": {
+                "id": "17",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role3"
+            }
+        },
+        "role4": {
+            "0": {
+                "id": "19",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role4"
+            },
+            "1": {
+                "id": "20",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role4"
+            },
+            "2": {
+                "id": "21",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role4"
+            },
+            "3": {
+                "id": "22",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role4"
+            },
+            "4": {
+                "id": "23",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role4"
+            }
+        },
+        "role5": {
+            "0": {
+                "id": "24",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role5"
+            },
+            "1": {
+                "id": "25",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role5"
+            },
+            "2": {
+                "id": "26",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role5"
+            },
+            "3": {
+                "id": "27",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role5"
+            },
+            "4": {
+                "id": "28",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role5"
+            }
+        },
+        "role6": {
+            "0": {
+                "id": "29",
+                "title": "Quest 1",
+                "description": "Description of Quest 1",
+                "reward": 10,
+                "role": "role6"
+            },
+            "1": {
+                "id": "30",
+                "title": "Quest 2",
+                "description": "Description of Quest 1",
+                "reward": 20,
+                "role": "role6"
+            },
+            "2": {
+                "id": "31",
+                "title": "Quest 3",
+                "description": "Description of Quest 1",
+                "reward": 30,
+                "role": "role6"
+            },
+            "3": {
+                "id": "32",
+                "title": "Quest 4",
+                "description": "Description of Quest 1",
+                "reward": 40,
+                "role": "role6"
+            },
+            "4": {
+                "id": "33",
+                "title": "Quest 5",
+                "description": "Description of Quest 1",
+                "reward": 50,
+                "role": "role6"
+            }
         }
     }
 }

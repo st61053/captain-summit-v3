@@ -17,20 +17,31 @@ const LoginForm = () => {
 
     const dispatch = useAppDispatch();
 
+    const roleMap: Record<string, string> = {
+        "role1": "Mapař",
+        "role2": "Vyjednavač",
+        "role3": "Dělostřelec",
+        "role4": "Zásobovač",
+        "role5": "Palubní krysa",
+        "role6": "První důstojník",
+    }
+
     return (
         <Box
             sx={{
                 width: "100%",
-                height: "100vh",
             }}>
             <Box
                 sx={{
                     mt: 8,
                     display: "flex",
                     justifyContent: "center",
+                    flexDirection: "column",
+                    alignItems: "center",
                 }}
             >
-                <Typography variant="h4">Přihlášení</Typography>
+                <Typography variant="h5" sx={{ fontWeight: "bold" }}>První kapitánský sraz</Typography>
+                <Typography variant="h6">2025</Typography>
             </Box>
             <Box
                 sx={{
@@ -43,7 +54,8 @@ const LoginForm = () => {
                 <Autocomplete
                     disablePortal
                     value={role}
-                    options={["admin", "member"]}
+                    options={["role1", "role2", "role3", "role4", "role5", "role6"]}
+                    getOptionLabel={(option) => roleMap[option]}
                     sx={{ width: "100%" }}
                     onChange={(event: any, newValue: string | null) => {
                         setRole(newValue);
@@ -84,8 +96,14 @@ const LoginForm = () => {
                     sx={{ py: 2, mt: 2 }}
                     variant="contained"
                     color="primary"
-                    onClick={() => dispatch(loginUser({ password, role: `${role}` })).unwrap()
-                        .catch(() => setError("Nesprávné heslo!"))}
+                    onClick={() => {
+
+                        dispatch(
+                            loginUser({ password, role: `${role}` })).unwrap()
+                            .catch(() => setError("Nesprávné heslo!"))
+
+                    }
+                    }
                 >
                     Přihlásit
                 </Button>

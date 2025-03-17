@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IQuest, IQuestState } from "./types";
+import { IQuest, IQuestState, IRoleQuest } from "./types";
 
 const initialState: IQuestState = {
     quests: [],
+    roleQuests: [],
     loading: false,
     error: "",
 };
@@ -13,6 +14,9 @@ const questSlice = createSlice({
     reducers: {
         setQuests: (state, action: PayloadAction<IQuest[]>) => {
             state.quests = action.payload;
+        },
+        setRoleQuests: (state, action: PayloadAction<IRoleQuest[]>) => {
+            state.roleQuests = action.payload;
         }
     },
     selectors: {
@@ -22,6 +26,7 @@ const questSlice = createSlice({
 
 export const {
     setQuests,
+    setRoleQuests,
 } = questSlice.actions;
 
 export const {

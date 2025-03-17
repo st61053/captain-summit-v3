@@ -3,6 +3,7 @@ import { IUser, IUserState } from "./types";
 import { loginUser } from "./api/loginUser";
 
 const initialState: IUserState = {
+    users: [],
     user: JSON.parse(localStorage.getItem("user") ?? "null"),
     loading: false,
     error: "",
@@ -16,9 +17,14 @@ const userSlice = createSlice({
         setUser: (state, action: PayloadAction<IUser>) => {
             state.user = action.payload;
         },
+        setUsers: (state, action: PayloadAction<IUser[]>) => {
+            state.users = action.payload;
+        },
         logout: (state) => {
             state.user = null;
+            sessionStorage.removeItem('refreshed');
             localStorage.removeItem("userPassword");
+            localStorage.removeItem("admin");
         },
     },
     extraReducers: (builder) => {
@@ -41,7 +47,8 @@ const userSlice = createSlice({
 
 export const {
     setUser,
-    logout
+    logout,
+    setUsers
 } = userSlice.actions;
 
 export default userSlice.reducer;

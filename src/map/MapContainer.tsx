@@ -1,24 +1,21 @@
 import { GoogleMap, InfoWindow, Marker, useJsApiLoader } from '@react-google-maps/api';
-import React, { useEffect, useRef, useState } from 'react'
-import { getQuests, setQuests } from '../quest/questSlice';
+import React, { useRef, useState } from 'react'
+import { getQuests } from '../quest/questSlice';
 import { useSelector } from 'react-redux';
-import { iconMap } from '../assets/icons';
+import { IconEnum, iconMap } from '../assets/icons';
 import { Box, IconButton, Typography } from '@mui/material';
-import { ref, onValue, off } from 'firebase/database';
-import { database } from '../firebase/firebaseConfig';
-import { useAppDispatch } from '../app/hooks';
 import { ContentCopy } from '@mui/icons-material';
+import { RootState } from '../app/store';
+import { IUser } from '../user/types';
 
 const MapContainer = () => {
-
-    const dispatch = useAppDispatch();
 
     const quests = useSelector(getQuests);
     const [open, setOpen] = useState(-1);
 
     const mapRef = useRef(null);
     const [center,] = useState({
-        lat: 50.086444, lng: 14.411963
+        lat: 50.09622, lng: 14.41755
     });
 
     const containerStyle = {
@@ -41,6 +38,23 @@ const MapContainer = () => {
         } catch (error) {
         }
     };
+
+    const teamMarkerMap: Record<string, string> = {
+        "teamA": iconMap[IconEnum.BLUE],
+        "teamB": iconMap[IconEnum.RED],
+        "teamC": iconMap[IconEnum.GREEN],
+        "teamD": iconMap[IconEnum.ORANGE],
+    }
+
+    const teamColorMap: Record<string, string> = {
+        "teamA": "#1976d2",
+        "teamB": "#d32f2f",
+        "teamC": "#2e7d32",
+        "teamD": "#ed6c02",
+    }
+
+
+    const { users } = useSelector((state: RootState) => state.user);
 
     return (
         <>
@@ -100,7 +114,7 @@ const MapContainer = () => {
                                             ? {
                                                 text: `.`,
                                                 fontWeight: "bold",
-                                                color: "#1976d2", // primary blue
+                                                color: teamColorMap[quest.status], // primary blue
                                                 className: 'marker-label'
                                             }
                                             : undefined
@@ -159,6 +173,21 @@ const MapContainer = () => {
                             )
                         }
                         )
+                    }
+
+                    {
+                        users.map((user: IUser, i: number) => {
+                            return (
+                                <Marker
+                                    key={`${user.id}_${i}`}
+                                    position={user.location}
+                                    icon={{
+                                        url: teamMarkerMap[user.team],
+                                        scaledSize: new google.maps.Size(15, 15),
+                                    }}
+                                />
+                            )
+                        })
                     }
                 </GoogleMap >
             }

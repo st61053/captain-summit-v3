@@ -1,88 +1,76 @@
 import { Box, Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { RootState } from '../../app/store';
 import { iconMap } from '../../assets/icons';
 import { AdsClick } from '@mui/icons-material';
 import { useAppDispatch } from '../../app/hooks';
 import { takeQuest } from '../api/takeQuest';
-import { ICords } from '../types';
+import { getDistance } from 'geolib';
+import Countdown from 'react-countdown';
+import { takeTime } from '../api/takeTime';
 
-const Quest = () => {
-
-    const param = useParams();
+const Quest = ({ questKey }: { questKey: string }) => {
     const quests = useSelector((state: RootState) => state.quest.quests);
 
-    const quest = quests.find((quest) => `${quest.id}` === param.id);
+    const quest = quests.find((quest) => `${quest.id}` === questKey);
     const { user } = useSelector((state: RootState) => state.user);
     const dispatch = useAppDispatch();
 
-    const EARTH_RADIUS = 6371000; // Poloměr Země v metrech
-
-    // Převod stupňů na radiány
-    const deg2rad = (deg: number): number => {
-        return deg * (Math.PI / 180);
-    }
-
-    // Výpočet vzdálenosti mezi dvěma body pomocí Haversinovy formule
-    const getDistanceFromLatLonInMeters = (
-        lat1: number,
-        lng1: number,
-        lat2: number,
-        lng2: number
-    ): number => {
-        const dLat = deg2rad(lat2 - lat1);
-        const dLng = deg2rad(lng2 - lng1);
-        const a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(deg2rad(lat1)) *
-            Math.cos(deg2rad(lat2)) *
-            Math.sin(dLng / 2) *
-            Math.sin(dLng / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return EARTH_RADIUS * c;
-    }
-
-    const [userLocation, setUserLocation] = useState<ICords | null>(null);
     const [distance, setDistance] = useState<number | null>(null);
-    const [locationError, setLocationError] = useState<string | null>(null);
+
 
     useEffect(() => {
+        if (quest && user) {
+            const distance = getDistance(
+                { latitude: user.location.lat, longitude: user.location.lng },
+                { latitude: quest.location.lat, longitude: quest.location.lng }
+            );
+
+            setDistance(distance);
+        }
+    }, [quest, user]);
+
+
+    const renderer = ({ minutes, seconds, completed }: { days: number, hours: number, minutes: number, seconds: number, completed: boolean }) => {
         if (quest) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const loc: ICords = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-                        setUserLocation(loc);
-                        const dist = getDistanceFromLatLonInMeters(
-                            loc.lat,
-                            loc.lng,
-                            quest.location.lat,
-                            quest.location.lng
-                        );
-                        setDistance(dist);
-                    },
-                    (error) => {
-                        setLocationError("Chyba při získávání polohy: " + error.message);
-                    },
-                    {
-                        enableHighAccuracy: true,
-                        timeout: 5000,
-                        maximumAge: 0,
-                    }
-                );
+            if (completed) {
+                // Render a completed state
+                return <Button
+                    disabled={quest.status === user?.team}
+                    variant='contained'
+                    startIcon={<AdsClick />}
+                    onClick={() => {
+                        dispatch(takeQuest(quest.id));
+                        dispatch(takeTime(quest.id));
+                    }}
+                >
+                    {"zabrat"}
+                </Button>
             } else {
-                setLocationError("Geolocation API není podporováno vaším prohlížečem.");
+                // Render a countdown
+                // return <Typography color='secondary' variant='subtitle1'>{`${days}:${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`}</Typography>
+                return <Button
+                    disabled
+                    variant='contained'
+                    startIcon={<AdsClick />}
+                >
+                    {`${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`}
+                </Button>
             }
         }
-    }, [quest]);
+    };
 
     // Quest bude přístupný, pokud je vzdálenost menší nebo rovna 10 metrů
     const isAccessible = distance !== null && distance <= 50;
+
+
+    const teamMap: Record<string, string> = {
+        "teamA": "primary.main",
+        "teamB": "error.main",
+        "teamC": "success.main",
+        "teamD": "warning.main",
+    }
 
     return (
         <Box sx={{
@@ -91,7 +79,7 @@ const Quest = () => {
             p: 2,
         }}>
             {quest
-                ? isAccessible ? <Box sx={{
+                ? <Box sx={{
                     display: "flex",
                     flexDirection: "column",
                     gap: 2,
@@ -121,7 +109,7 @@ const Quest = () => {
                                     width: 18,
                                     height: 18,
                                     borderRadius: "50%",
-                                    backgroundColor: "primary.main",
+                                    backgroundColor: teamMap[quest.status],
                                 }} />}
                             </Box>
                             <Typography
@@ -134,40 +122,31 @@ const Quest = () => {
                         <img src={iconMap[quest?.icon]} alt={quest.title} width={"46px"} height={"46px"}></img>
                     </Box>
                     <Box sx={{ pb: 4 }}>
-                        <Typography>
+                        {isAccessible ? <Typography>
                             {quest?.description}
                         </Typography>
+                            : <Box sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                            }}>
+                                <Typography>
+                                    {"Úkol je přístupný pouze v jeho blízkosti (50 m)."}
+                                </Typography>
+                                <Typography>
+                                    {`Vzdálenost od úkolu cca ${Number(distance).toFixed(2)} m`}
+                                </Typography>
+                            </Box>
+                        }
                     </Box>
                     <Box sx={{
                         display: "flex",
                         justifyContent: "flex-end"
                     }}>
-                        <Typography
-                            variant='h6'
-                            sx={{
-                                fontWeight: "bold"
-                            }}
-                        >
-                            {`${distance} m`}
-                        </Typography>
-                        <Button
-                            disabled={quest.status === user?.team}
-                            variant='contained'
-                            startIcon={<AdsClick />}
-                            onClick={() => dispatch(takeQuest(quest.id))}
-                        >
-                            {"zabrat"}
-                        </Button>
+                        {isAccessible && quest.takeTime &&
+                            <Countdown key={quest.status} renderer={renderer} date={quest.takeTime} />
+                        }
                     </Box>
                 </Box>
-                    : <Typography
-                        variant='h6'
-                        sx={{
-                            fontWeight: "bold"
-                        }}
-                    >
-                        {"Úkol není v dosahu..."}
-                    </Typography>
                 : <Typography
                     variant='h6'
                     sx={{

@@ -10,24 +10,39 @@ export const loginUser = createAsyncThunk(
         const [team, pass] = password.split("-"); // Rozdělení na tým a heslo
 
         try {
-            const snapshot = await get(ref(database, `users/${team}/${role}`));
+            if (role === "null" && password === "Admin123") {
+                const adminUser: IUser = {
+                    id: "admin",
+                    password: "Admin123",
+                    role: "admin",
+                    team: "admin",
+                    coins: 0,
+                    location: { lat: 0, lng: 0 },
+                    roleQuests: []
+                }
+                return adminUser;
+            } else {
+                const snapshot = await get(ref(database, `users/${team}/${role}`));
 
-            if (!snapshot.exists()) {
-                throw new Error("Neplatný tým nebo role.");
+                if (!snapshot.exists()) {
+                    throw new Error("Neplatný tým nebo role.");
+                }
+
+                const userData: IUser = snapshot.val();
+                if (userData.password !== pass) {
+                    throw new Error("Nesprávné heslo.");
+                }
+
+                const user: IUser = userData;
+
+                // 🔹 Uložení pouze hesla do localStorage
+                localStorage.setItem("userPassword", password);
+                localStorage.setItem("userRole", role);
+
+                return user;
             }
 
-            const userData: IUser = snapshot.val();
-            if (userData.password !== pass) {
-                throw new Error("Nesprávné heslo.");
-            }
 
-            const user: IUser = userData;
-
-            // 🔹 Uložení pouze hesla do localStorage
-            localStorage.setItem("userPassword", password);
-            localStorage.setItem("userRole", role);
-
-            return user;
         } catch (error: any) {
             return rejectWithValue(error.message);
         }

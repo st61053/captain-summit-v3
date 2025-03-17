@@ -1,6 +1,6 @@
 {
   "name": "captains-summit-v3",
-  "homepage": "https://st61053.github.io/captains-summit-v3",
+  "homepage": "https://st61053.github.io/captain-summit-v3",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +18,11 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "dayjs": "^1.11.13",
     "firebase": "^11.4.0",
+    "geolib": "^3.3.4",
+    "lodash": "^4.17.21",
+    "lodash.throttle": "^4.1.1",
     "react": "^19.0.0",
     "react-countdown": "^2.3.6",
     "react-dom": "^19.0.0",

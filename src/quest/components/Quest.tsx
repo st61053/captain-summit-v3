@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
-import { iconMap } from '../../assets/icons';
+import { IconEnum, iconMap } from '../../assets/icons';
 import { AdsClick } from '@mui/icons-material';
 import { useAppDispatch } from '../../app/hooks';
 import { takeQuest } from '../api/takeQuest';
@@ -120,6 +120,22 @@ const Quest = ({ questKey }: { questKey: string }) => {
 
                         </Box>
                         <img src={iconMap[quest?.icon]} alt={quest.title} width={"46px"} height={"46px"}></img>
+                    </Box>
+                    <Box sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
+                    }}>
+                        <Typography sx={{ pr: 0.5 }} variant="body2">
+                            {"Odměna:"}
+                        </Typography>
+                        <Typography variant="body2">
+                            {quest.reward}
+                        </Typography>
+                        <img src={iconMap[IconEnum.COIN]} alt="coin" width={14} height={14} />
+                        <Typography sx={{ pl: 0.5 }} variant="body2">
+                            {"/ člen"}
+                        </Typography>
                     </Box>
                     <Box sx={{ pb: 4 }}>
                         {isAccessible ? <Typography>

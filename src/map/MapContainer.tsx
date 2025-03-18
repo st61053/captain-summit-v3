@@ -152,6 +152,22 @@ const MapContainer = () => {
                                                 <Box sx={{
                                                     display: "flex",
                                                     alignItems: "center",
+                                                    gap: 0.5,
+                                                }}>
+                                                    <Typography sx={{ pr: 0.5 }} variant="body2">
+                                                        {"Odměna:"}
+                                                    </Typography>
+                                                    <Typography variant="body2">
+                                                        {quest.reward}
+                                                    </Typography>
+                                                    <img src={iconMap[IconEnum.COIN]} alt="coin" width={14} height={14} />
+                                                    <Typography sx={{ pl: 0.5 }} variant="body2">
+                                                        {"/ člen"}
+                                                    </Typography>
+                                                </Box>
+                                                <Box sx={{
+                                                    display: "flex",
+                                                    alignItems: "center",
                                                 }}>
                                                     <IconButton
                                                         sx={{ pl: 0 }}

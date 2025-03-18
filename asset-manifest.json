@@ -1,18 +1,28 @@
 {
   "files": {
-    "main.css": "/captain-summit-v3/static/css/main.90eb8439.css",
-    "main.js": "/captain-summit-v3/static/js/main.6650aa0e.js",
+    "main.css": "/captain-summit-v3/static/css/main.ceb07bf7.css",
+    "main.js": "/captain-summit-v3/static/js/main.08953742.js",
     "static/media/t3.gif": "/captain-summit-v3/static/media/t3.5cb895093c7e60bbb05e.gif",
     "static/media/t2.gif": "/captain-summit-v3/static/media/t2.317fe618245785933800.gif",
     "static/media/t1.gif": "/captain-summit-v3/static/media/t1.055f8faa1c14f08b1d29.gif",
     "static/media/barrel.png": "/captain-summit-v3/static/media/barrel.cbc22e9b65d9953ea84f.png",
     "static/media/dollar.png": "/captain-summit-v3/static/media/dollar.ed24bb3481a327689b68.png",
+    "static/media/letter-c.png": "/captain-summit-v3/static/media/letter-c.af0a744f6a611b681620.png",
+    "static/media/letter-g.png": "/captain-summit-v3/static/media/letter-g.c57837c4bc3dd83b8fab.png",
+    "static/media/letter-a.png": "/captain-summit-v3/static/media/letter-a.447f672466fed41af391.png",
+    "static/media/letter-j.png": "/captain-summit-v3/static/media/letter-j.03d5d9ca0d34e42fe8ec.png",
+    "static/media/letter-d.png": "/captain-summit-v3/static/media/letter-d.9ec854fe2161826873d8.png",
+    "static/media/letter-b.png": "/captain-summit-v3/static/media/letter-b.463231353596a31f3847.png",
+    "static/media/letter-i.png": "/captain-summit-v3/static/media/letter-i.b079841069a17a8951e5.png",
+    "static/media/letter-h.png": "/captain-summit-v3/static/media/letter-h.007c95797723adb7d317.png",
+    "static/media/letter-e.png": "/captain-summit-v3/static/media/letter-e.8a10a5e1525eb3b9ec28.png",
+    "static/media/letter-f.png": "/captain-summit-v3/static/media/letter-f.41852d587d528daa1b56.png",
     "index.html": "/captain-summit-v3/index.html",
-    "main.90eb8439.css.map": "/captain-summit-v3/static/css/main.90eb8439.css.map",
-    "main.6650aa0e.js.map": "/captain-summit-v3/static/js/main.6650aa0e.js.map"
+    "main.ceb07bf7.css.map": "/captain-summit-v3/static/css/main.ceb07bf7.css.map",
+    "main.08953742.js.map": "/captain-summit-v3/static/js/main.08953742.js.map"
   },
   "entrypoints": [
-    "static/css/main.90eb8439.css",
-    "static/js/main.6650aa0e.js"
+    "static/css/main.ceb07bf7.css",
+    "static/js/main.08953742.js"
   ]
 }

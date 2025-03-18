@@ -77,10 +77,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
     const renderer = ({ days, hours, minutes, seconds, completed }: { days: number, hours: number, minutes: number, seconds: number, completed: boolean }) => {
         if (completed) {
             // Render a completed state
-            return <Typography variant='subtitle1'>Konec hry!</Typography>
+            return <Typography color='common.black' variant='subtitle1'>Konec hry!</Typography>
         } else {
             // Render a countdown
-            return <Typography color='secondary' variant='subtitle1'>{`${days}:${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`}</Typography>
+            return <Typography color='common.black' variant='subtitle1'>{`${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`}</Typography>
         }
     };
 
@@ -141,16 +141,16 @@ const Layout = ({ children }: { children: ReactNode }) => {
                             alignItems: "center",
                             gap: 1,
                         }}>
-                            <Typography variant="subtitle1" color='secondary' >
+                            <Typography variant="subtitle1" color='common.black' >
                                 {user && roleMap[user.role]}
                             </Typography>
-                            <Typography variant="subtitle1" color='secondary' >
+                            <Typography variant="subtitle1" color='common.black' >
                                 {"/"}
                             </Typography>
-                            <Typography variant="subtitle1" color='secondary' >
+                            <Typography variant="subtitle1" color='common.black' >
                                 {user && teamMap[user.team]}
                             </Typography>
-                            <Typography variant="subtitle1" color='secondary' >
+                            <Typography variant="subtitle1" color='common.black' >
                                 {"/"}
                             </Typography>
                             <Box sx={{
@@ -158,13 +158,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
                                 alignItems: "center",
                                 gap: 0.5,
                             }}>
-                                <Typography variant="subtitle1" color='secondary'>
+                                <Typography variant="subtitle1" color='common.black'>
                                     {user?.coins}
                                 </Typography>
                                 <img src={iconMap[IconEnum.COIN]} alt="coin" width={16} height={16} />
                             </Box>
                         </Box>
-                        <Countdown renderer={renderer} date={"Sat Mar 22 2025 15:00:00 GMT+0100"} />
+                        <Countdown renderer={renderer} date={"Sat Mar 22 2025 16:30:00 GMT+0100"} />
                     </Box>
                 </AppBar>
                 {/* Menu se vysune ze shora pod AppBar */}

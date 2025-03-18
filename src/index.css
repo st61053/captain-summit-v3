@@ -9,9 +9,9 @@ body {
 
 .marker-label {
     position: absolute;
-    top: -15px;
-    left: -11px;
-    font-size: 80px !important;
+    top: 40px;
+    left: 3px;
+    font-size: 30px !important;
     text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff,
         1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff !important;
 }

@@ -107,12 +107,12 @@ const MapContainer = () => {
                                     position={quest.location}
                                     icon={{
                                         url: iconMap[quest.icon],
-                                        scaledSize: new google.maps.Size(40, 40),
+                                        scaledSize: new google.maps.Size(35, 35),
                                     }}
                                     label={
                                         quest.status !== ""
                                             ? {
-                                                text: `.`,
+                                                text: `⛳︎`,
                                                 fontWeight: "bold",
                                                 color: teamColorMap[quest.status], // primary blue
                                                 className: 'marker-label'
@@ -183,7 +183,7 @@ const MapContainer = () => {
                                     position={user.location}
                                     icon={{
                                         url: teamMarkerMap[user.team],
-                                        scaledSize: new google.maps.Size(15, 15),
+                                        scaledSize: new google.maps.Size(12, 12),
                                     }}
                                 />
                             )

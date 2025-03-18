@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/captain-summit-v3/static/css/main.ceb07bf7.css",
-    "main.js": "/captain-summit-v3/static/js/main.93e6b394.js",
+    "main.js": "/captain-summit-v3/static/js/main.944fddee.js",
     "static/media/t3.gif": "/captain-summit-v3/static/media/t3.5cb895093c7e60bbb05e.gif",
     "static/media/t2.gif": "/captain-summit-v3/static/media/t2.317fe618245785933800.gif",
     "static/media/t1.gif": "/captain-summit-v3/static/media/t1.055f8faa1c14f08b1d29.gif",
@@ -19,10 +19,10 @@
     "static/media/letter-f.png": "/captain-summit-v3/static/media/letter-f.41852d587d528daa1b56.png",
     "index.html": "/captain-summit-v3/index.html",
     "main.ceb07bf7.css.map": "/captain-summit-v3/static/css/main.ceb07bf7.css.map",
-    "main.93e6b394.js.map": "/captain-summit-v3/static/js/main.93e6b394.js.map"
+    "main.944fddee.js.map": "/captain-summit-v3/static/js/main.944fddee.js.map"
   },
   "entrypoints": [
     "static/css/main.ceb07bf7.css",
-    "static/js/main.93e6b394.js"
+    "static/js/main.944fddee.js"
   ]
 }

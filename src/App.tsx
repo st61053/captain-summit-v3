@@ -25,9 +25,6 @@ function App() {
   const [password,] = useState(localStorage.getItem("userPassword") ?? null);
   const [role,] = useState(localStorage.getItem("userRole") ?? null);
 
-  const [admin,] = useState(localStorage.getItem("admin") ?? null);
-
-
   // Uchovává předchozí stav uživatele (abychom zabránili nekonečnému updatu)
   const prevUserRef = useRef(user);
 

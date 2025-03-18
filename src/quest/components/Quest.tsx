@@ -115,7 +115,7 @@ const Quest = ({ questKey }: { questKey: string }) => {
                             <Typography
                                 color='grey'
                                 variant='body2'>
-                                {`${quest.location.lat}, ${quest.location.lng}`}
+                                {`${quest.location.lat.toFixed(5)}, ${quest.location.lng.toFixed(5)}`}
                             </Typography>
 
                         </Box>

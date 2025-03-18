@@ -15,7 +15,7 @@ const MapContainer = () => {
 
     const mapRef = useRef(null);
     const [center,] = useState({
-        lat: 50.09622, lng: 14.41755
+        lat: 50.10104924627968, lng: 14.419361241410119
     });
 
     const containerStyle = {
@@ -161,7 +161,7 @@ const MapContainer = () => {
                                                     </IconButton>
                                                     <Typography
                                                         variant='body2'>
-                                                        {`${quest.location.lat}, ${quest.location.lng}`}
+                                                        {`${quest.location.lat.toFixed(5)}, ${quest.location.lng.toFixed(5)}`}
                                                     </Typography>
                                                 </Box>
 

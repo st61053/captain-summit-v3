@@ -9,15 +9,26 @@ import { takeQuest } from '../api/takeQuest';
 import { getDistance } from 'geolib';
 import Countdown from 'react-countdown';
 import { takeTime } from '../api/takeTime';
+import { IQuest } from '../types';
 
 const Quest = ({ questKey }: { questKey: string }) => {
     const quests = useSelector((state: RootState) => state.quest.quests);
 
-    const quest = quests.find((quest) => `${quest.id}` === questKey);
+    const [quest, setQuest] = useState<IQuest | null>(null);
+
     const { user } = useSelector((state: RootState) => state.user);
     const dispatch = useAppDispatch();
 
     const [distance, setDistance] = useState<number | null>(null);
+
+
+    useEffect(() => {
+        const quest = quests.find((quest) => `${quest.id}` === questKey);
+        if (quest) {
+            setQuest(quest);
+        }
+
+    }, [quests, questKey]);
 
 
     useEffect(() => {

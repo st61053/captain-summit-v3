@@ -63,7 +63,7 @@ const MapContainer = () => {
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
-                    zoom={15}
+                    zoom={14}
                     onLoad={onLoad}
                     options={{
                         gestureHandling: "greedy",

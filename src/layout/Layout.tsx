@@ -114,7 +114,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             width: "100%",
             height: "100%",
         }}>
-            <Dialog open={message.active}>
+            <Dialog open={message.active && user?.id !== "admin"}>
                 <Box sx={{
                     p: 2,
                     display: "flex",

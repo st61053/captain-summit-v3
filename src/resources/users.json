@@ -642,7 +642,7 @@
     "settings": {
         "message": {
             "title": "Pauza na oběd",
-            "message": "Všichni si jdou dát oběd, pokračujeme ve 13:00",
+            "message": "Hra bude spuštěna opět ve 13:00.",
             "active": false
         },
         "gameEndTime": "Sat Mar 22 2025 16:30:00 GMT+0100"

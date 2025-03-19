@@ -1,11 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from '../user/userSlice'
 import questReducer from '../quest/questSlice'
+import layoutReducer from '../layout/layoutSlice'
+
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
         quest: questReducer,
+        layout: layoutReducer,
     },
 })
 

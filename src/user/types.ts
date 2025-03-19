@@ -6,6 +6,7 @@ export interface IUserState {
     loading: boolean;
     error: string | null;
     listener: (() => void) | null;
+    message: IMessage;
 }
 
 export interface IUser {
@@ -16,4 +17,10 @@ export interface IUser {
     coins: number;
     location: ICords;
     roleQuests: string[];
+}
+
+export interface IMessage {
+    title: string;
+    message: string;
+    active: boolean;
 }

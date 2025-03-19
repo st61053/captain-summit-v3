@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
-import { setUser, setUsers } from "./user/userSlice";
+import { setMessage, setUser, setUsers } from "./user/userSlice";
 import { loginUser } from "./user/api/loginUser";
 import { ref, onValue, off } from "firebase/database";
 import { database } from "./firebase/firebaseConfig";
@@ -14,6 +14,7 @@ import { setQuests, setRoleQuests } from "./quest/questSlice";
 import { IUser } from "./user/types";
 import AdminDashboard from "./layout/AdminDashboard";
 import { IRoleQuest } from "./quest/types";
+import { setEndOfGame } from "./layout/layoutSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -129,6 +130,39 @@ function App() {
       };
     }
   }, [dispatch, user]);
+
+
+  useEffect(() => {
+    const settingsMessageQuery = ref(database, `settings/message`);
+
+    onValue(settingsMessageQuery, (snapshot) => {
+      if (snapshot.exists()) {
+        const message = snapshot.val();
+        dispatch(setMessage(message));
+      }
+    });
+
+    return () => {
+      off(settingsMessageQuery);
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    const settingsGameEndTimeQuery = ref(database, `settings/gameEndTime`);
+
+    onValue(settingsGameEndTimeQuery, (snapshot) => {
+      if (snapshot.exists()) {
+        const gameEndTime = snapshot.val();
+        dispatch(setEndOfGame(gameEndTime));
+      }
+    });
+
+    return () => {
+      off(settingsGameEndTimeQuery);
+    };
+  }, [dispatch]);
+
+
 
   if (loading) {
     return <Backdrop

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser, IUserState } from "./types";
+import { IMessage, IUser, IUserState } from "./types";
 import { loginUser } from "./api/loginUser";
 
 const initialState: IUserState = {
@@ -8,6 +8,11 @@ const initialState: IUserState = {
     loading: false,
     error: "",
     listener: null,
+    message: {
+        title: "",
+        message: "",
+        active: false,
+    },
 };
 
 const userSlice = createSlice({
@@ -25,6 +30,9 @@ const userSlice = createSlice({
             sessionStorage.removeItem('refreshed');
             localStorage.removeItem("userPassword");
             localStorage.removeItem("admin");
+        },
+        setMessage: (state, action: PayloadAction<IMessage>) => {
+            state.message = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -48,7 +56,8 @@ const userSlice = createSlice({
 export const {
     setUser,
     logout,
-    setUsers
+    setUsers,
+    setMessage
 } = userSlice.actions;
 
 export default userSlice.reducer;

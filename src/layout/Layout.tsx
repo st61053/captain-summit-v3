@@ -1,5 +1,5 @@
 import { Assignment, Close, Leaderboard, Logout, Map, Menu } from '@mui/icons-material'
-import { AppBar, Box, IconButton, Typography, List, ListItemText, Fade, Divider, ListItemButton, ListItemIcon, Toolbar } from '@mui/material'
+import { AppBar, Box, IconButton, Typography, List, ListItemText, Fade, Divider, ListItemButton, ListItemIcon, Toolbar, Dialog } from '@mui/material'
 import React, { ReactNode, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
@@ -14,7 +14,8 @@ import { setLocation } from '../user/api/setLocation';
 
 const Layout = ({ children }: { children: ReactNode }) => {
 
-    const { user } = useSelector((state: RootState) => state.user);
+    const { user, message } = useSelector((state: RootState) => state.user);
+    const { gameEndTime } = useSelector((state: RootState) => state.layout);
     const dispatch = useAppDispatch();
 
     const navigate = useNavigate();
@@ -113,6 +114,20 @@ const Layout = ({ children }: { children: ReactNode }) => {
             width: "100%",
             height: "100%",
         }}>
+            <Dialog open={message.active}>
+                <Box sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                }}>
+                    <Typography sx={{ fontWeight: "bold" }} variant='subtitle1'>
+                        {message.title}
+                    </Typography>
+                    <Typography variant='caption'>
+                        {message.message}
+                    </Typography>
+                </Box>
+            </Dialog>
             <Box>
                 <AppBar position="static">
                     <Toolbar sx={{ pr: 1 }}>
@@ -164,7 +179,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
                                 <img src={iconMap[IconEnum.COIN]} alt="coin" width={16} height={16} />
                             </Box>
                         </Box>
-                        <Countdown renderer={renderer} date={"Sat Mar 22 2025 16:30:00 GMT+0100"} />
+                        <Countdown key={gameEndTime} renderer={renderer} date={gameEndTime} />
                     </Box>
                 </AppBar>
                 {/* Menu se vysune ze shora pod AppBar */}

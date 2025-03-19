@@ -3,7 +3,7 @@
         "teamA": {
             "role1": {
                 "id": "1",
-                "password": "Heslo123",
+                "password": "Marodka666",
                 "role": "role1",
                 "team": "teamA",
                 "coins": 0,
@@ -14,7 +14,7 @@
             },
             "role2": {
                 "id": "2",
-                "password": "Heslo123",
+                "password": "Podkova543",
                 "role": "role2",
                 "team": "teamA",
                 "coins": 0,
@@ -25,7 +25,7 @@
             },
             "role3": {
                 "id": "3",
-                "password": "Heslo123",
+                "password": "Veverka3",
                 "role": "role3",
                 "team": "teamA",
                 "coins": 0,
@@ -47,7 +47,7 @@
             },
             "role5": {
                 "id": "5",
-                "password": "Heslo123",
+                "password": "Faramir6",
                 "role": "role5",
                 "team": "teamA",
                 "coins": 0,
@@ -58,7 +58,7 @@
             },
             "role6": {
                 "id": "6",
-                "password": "Heslo123",
+                "password": "Kozel22",
                 "role": "role6",
                 "team": "teamA",
                 "coins": 0,
@@ -71,7 +71,7 @@
         "teamB": {
             "role1": {
                 "id": "7",
-                "password": "Heslo123",
+                "password": "Laso75",
                 "role": "role1",
                 "team": "teamB",
                 "coins": 0,
@@ -82,7 +82,7 @@
             },
             "role2": {
                 "id": "8",
-                "password": "Heslo123",
+                "password": "MaraAdmiral99",
                 "role": "role2",
                 "team": "teamB",
                 "coins": 0,
@@ -93,7 +93,7 @@
             },
             "role3": {
                 "id": "9",
-                "password": "Heslo123",
+                "password": "Xkoberec7",
                 "role": "role3",
                 "team": "teamB",
                 "coins": 0,
@@ -104,7 +104,7 @@
             },
             "role4": {
                 "id": "10",
-                "password": "Heslo123",
+                "password": "DlouheHeslo4",
                 "role": "role4",
                 "team": "teamB",
                 "coins": 0,
@@ -115,7 +115,7 @@
             },
             "role5": {
                 "id": "11",
-                "password": "Heslo123",
+                "password": "KratkeHeslo2",
                 "role": "role5",
                 "team": "teamB",
                 "coins": 0,
@@ -126,7 +126,7 @@
             },
             "role6": {
                 "id": "12",
-                "password": "Heslo123",
+                "password": "RandomSlova77",
                 "role": "role6",
                 "team": "teamB",
                 "coins": 0,
@@ -139,7 +139,7 @@
         "teamC": {
             "role1": {
                 "id": "13",
-                "password": "Heslo123",
+                "password": "VysledekJe55",
                 "role": "role1",
                 "team": "teamC",
                 "coins": 0,
@@ -150,7 +150,7 @@
             },
             "role2": {
                 "id": "14",
-                "password": "Heslo123",
+                "password": "Uho86",
                 "role": "role2",
                 "team": "teamC",
                 "coins": 0,
@@ -161,7 +161,7 @@
             },
             "role3": {
                 "id": "15",
-                "password": "Heslo123",
+                "password": "Hodinky547",
                 "role": "role3",
                 "team": "teamC",
                 "coins": 0,
@@ -172,7 +172,7 @@
             },
             "role4": {
                 "id": "16",
-                "password": "Heslo123",
+                "password": "KonecVe4",
                 "role": "role4",
                 "team": "teamC",
                 "coins": 0,
@@ -183,7 +183,7 @@
             },
             "role5": {
                 "id": "17",
-                "password": "Heslo123",
+                "password": "Hledej22",
                 "role": "role5",
                 "team": "teamC",
                 "coins": 0,
@@ -194,7 +194,7 @@
             },
             "role6": {
                 "id": "18",
-                "password": "Heslo123",
+                "password": "DruhaStrana0",
                 "role": "role6",
                 "team": "teamC",
                 "coins": 0,
@@ -207,7 +207,7 @@
         "teamD": {
             "role1": {
                 "id": "19",
-                "password": "Heslo123",
+                "password": "TOP09",
                 "role": "role1",
                 "team": "teamD",
                 "coins": 0,
@@ -218,7 +218,7 @@
             },
             "role2": {
                 "id": "20",
-                "password": "Heslo123",
+                "password": "ANO2011",
                 "role": "role2",
                 "team": "teamD",
                 "coins": 0,
@@ -229,7 +229,7 @@
             },
             "role3": {
                 "id": "21",
-                "password": "Heslo123",
+                "password": "ODS",
                 "role": "role3",
                 "team": "teamD",
                 "coins": 0,
@@ -240,7 +240,7 @@
             },
             "role4": {
                 "id": "22",
-                "password": "Heslo123",
+                "password": "STAN",
                 "role": "role4",
                 "team": "teamD",
                 "coins": 0,
@@ -251,7 +251,7 @@
             },
             "role5": {
                 "id": "23",
-                "password": "Heslo123",
+                "password": "SPD",
                 "role": "role5",
                 "team": "teamD",
                 "coins": 0,
@@ -262,7 +262,7 @@
             },
             "role6": {
                 "id": "24",
-                "password": "Heslo123",
+                "password": "Pirati",
                 "role": "role6",
                 "team": "teamD",
                 "coins": 0,
